@@ -2,6 +2,7 @@ import * as React from "react";
 import type { HeadFC, PageProps } from "gatsby";
 import { graphql, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { OutboundLink } from "gatsby-plugin-google-gtag";
 
 const pageStyles = {
     color: "#232129",
@@ -26,6 +27,16 @@ const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
                 <br/>
                 <span style={headingAccentStyles}>— you just made a Gatsby site! 🎉🎉🎉</span>
             </h1>
+
+            <p>This is a gtag link:</p>
+            <OutboundLink href="https://www.gatsbyjs.com/plugins/gatsby-plugin-google-analytics/">
+                Visit the Google Analytics plugin page!
+            </OutboundLink>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
             <>
                 {
                     assets && assets.map((asset, index) => {
@@ -38,7 +49,7 @@ const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
                                     </div>
                                     {
                                         image &&
-                                        <GatsbyImage image={image} alt={asset.title}/>
+                                        <GatsbyImage image={image} alt={asset.title ?? ""}/>
                                     }
                                 </div>
                                 <br/>
