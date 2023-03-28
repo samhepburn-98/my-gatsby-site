@@ -38,7 +38,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
             path: contentful_id,
             component: resolve(__dirname, './src/templates/SinglePage.tsx'),
             context: {
-                contentful_id,
+                id: contentful_id,
             },
         });
     });
